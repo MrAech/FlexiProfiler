@@ -1,0 +1,158 @@
+{
+  "version": "1.0",
+  "description": "Default rule definitions for FlexiProfile. Defines available rule types, operators, actions, severities, and supported data types.",
+
+  "dataTypes": [
+    "string",
+    "number",
+    "integer",
+    "float",
+    "date",
+    "boolean"
+  ],
+
+  "operators": {
+    "equals": {
+      "description": "Value must equal the given input",
+      "dataTypes": ["string", "number", "date", "boolean"],
+      "expects": 1
+    },
+    "notEquals": {
+      "description": "Value must not equal the given input",
+      "dataTypes": ["string", "number", "date", "boolean"],
+      "expects": 1
+    },
+    "greaterThan": {
+      "description": "Value must be greater than threshold",
+      "dataTypes": ["number", "date"],
+      "expects": 1
+    },
+    "lessThan": {
+      "description": "Value must be less than threshold",
+      "dataTypes": ["number", "date"],
+      "expects": 1
+    },
+    "between": {
+      "description": "Value must lie between lower and upper bounds (inclusive)",
+      "dataTypes": ["number", "date"],
+      "expects": 2
+    },
+    "in": {
+      "description": "Value must be one of the provided list",
+      "dataTypes": ["string", "number", "boolean"],
+      "expects": "array"
+    },
+    "notIn": {
+      "description": "Value must not be one of the provided list",
+      "dataTypes": ["string", "number", "boolean"],
+      "expects": "array"
+    },
+    "matchesRegex": {
+      "description": "Value must match a regular expression",
+      "dataTypes": ["string"],
+      "expects": 1
+    },
+    "notMatchesRegex": {
+      "description": "Value must not match a regular expression",
+      "dataTypes": ["string"],
+      "expects": 1
+    },
+    "isNull": {
+      "description": "Value must be null",
+      "dataTypes": ["string", "number", "date", "boolean"],
+      "expects": 0
+    },
+    "isNotNull": {
+      "description": "Value must not be null",
+      "dataTypes": ["string", "number", "date", "boolean"],
+      "expects": 0
+    },
+    "unique": {
+      "description": "Values in this field must be unique",
+      "dataTypes": ["string", "number", "date", "boolean"],
+      "expects": 0
+    },
+    "maxNullPercentage": {
+      "description": "Column may not exceed allowed percentage of nulls",
+      "dataTypes": ["string", "number", "date", "boolean"],
+      "expects": 1,
+      "valueType": "percentage"
+    },
+    "maxDuplicates": {
+      "description": "Column may not exceed allowed number of duplicate values",
+      "dataTypes": ["string", "number", "date", "boolean"],
+      "expects": 1
+    },
+    "minLength": {
+      "description": "String length must be greater than or equal to given value",
+      "dataTypes": ["string"],
+      "expects": 1
+    },
+    "maxLength": {
+      "description": "String length must be less than or equal to given value",
+      "dataTypes": ["string"],
+      "expects": 1
+    },
+    "allowedPattern": {
+      "description": "String must follow a predefined pattern (e.g., email, phone)",
+      "dataTypes": ["string"],
+      "expects": 1,
+      "predefinedPatterns": ["email", "phone", "url", "alphanumeric"]
+    }
+  },
+
+  "ruleCategories": {
+    "completeness": [
+      "isNull",
+      "isNotNull",
+      "maxNullPercentage"
+    ],
+    "validity": [
+      "equals",
+      "notEquals",
+      "greaterThan",
+      "lessThan",
+      "between",
+      "in",
+      "notIn",
+      "matchesRegex",
+      "notMatchesRegex",
+      "allowedPattern"
+    ],
+    "uniqueness": [
+      "unique",
+      "maxDuplicates"
+    ],
+    "consistency": [
+      "minLength",
+      "maxLength"
+    ]
+  },
+
+  "actions": {
+    "flag": {
+      "description": "Mark row/field as warning, continue processing"
+    },
+    "reject": {
+      "description": "Reject the row from valid set"
+    },
+    "warn": {
+      "description": "Log warning but allow processing"
+    },
+    "ignore": {
+      "description": "Skip rule enforcement, useful for testing"
+    }
+  },
+
+  "severityLevels": {
+    "low": "Minor data issue, informational only",
+    "medium": "Potentially problematic, should be reviewed",
+    "high": "Critical issue, must be resolved"
+  },
+
+  "reporting": {
+    "defaultOutputFormats": ["HTML", "Markdown", "JSON"],
+    "defaultCharts": ["histogram", "boxplot", "pie", "heatmap"],
+    "highlightFailedRules": true
+  }
+}
