@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.* ?>
+<?import javafx.scene.shape.* ?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<BorderPane fx:id="root"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.aech.flexiprofiler.ui.DashboardController"
+            styleClass="root-pane">
+    <!--    Top Bar-->
+    <top>
+        <HBox styleClass="topbar" alignment="CENTER_LEFT" spacing="12">
+            <HBox spacing="10" alignment="CENTER_LEFT" styleClass="brand-box">
+                <!--                Gradient square behind DB icon-->
+                <StackPane styleClass="brand-icon-bg">
+                    <FontIcon iconLiteral="fas-database" styleClass="brand-icon"/>
+                </StackPane>
+                <VBox>
+                    <Label text="FlexiProfiler" styleClass="brand-title"/>
+                    <Label text="Data Profiler &amp; Validation" styleClass="brand-sub"/>
+                </VBox>
+            </HBox>
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <HBox spacing="18" alignment="CENTER_RIGHT" styleClass="nav-box">
+                <HBox spacing="6" alignment="CENTER">
+                    <FontIcon iconLiteral="fas-home" styleClass="nav-icon"/>
+                    <Label text="Dashboard" styleClass="nav-label"/>
+                </HBox>
+                <HBox spacing="6" alignment="CENTER">
+                    <FontIcon iconLiteral="fas-user" styleClass="nav-icon"/>
+                    <Label text="Profile" styleClass="nav-label"/>
+                </HBox>
+                <HBox spacing="6" alignment="CENTER">
+                    <FontIcon iconLiteral="fas-shield-alt" styleClass="nav-icon"/>
+                    <Label text="Rules" styleClass="nav-label"/>
+                </HBox>
+            </HBox>
+        </HBox>
+    </top>
+
+    <!--    Center Import and Main Text-->
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="32" styleClass="center-column">
+
+            <!-- Hero / Welcome Card -->
+            <VBox styleClass="hero-card" alignment="CENTER" spacing="16" maxWidth="1100">
+                <FontIcon iconLiteral="fas-database" styleClass="hero-icon"/>
+                <Label text="Welcome to FlexiProfile" styleClass="hero-title"/>
+                <Label text="Professional data profiling and validation tool for analysts and QA teams.&#10;Import your datasets and ensure data quality with powerful validation rules."
+                       styleClass="hero-sub" wrapText="true" maxWidth="760"/>
+                <HBox spacing="12" alignment="CENTER">
+                    <Button text="Get Started" styleClass="btn-get-started"/>
+                    <!-- <Button text="Learn More" styleClass="btn-learn-more"/>    yeah this is not happening -->
+                </HBox>
+            </VBox>
+
+            <!-- Dataset card (drop zone) -->
+            <VBox fx:id="datasetCard" styleClass="dataset-card" spacing="20" alignment="CENTER" maxWidth="1100">
+                <HBox spacing="8" alignment="CENTER">
+                    <FontIcon iconLiteral="fas-database" styleClass="card-icon"/>
+                    <Label text="Import Dataset" styleClass="card-title" />
+                </HBox>
+
+                <VBox fx:id="dropZone" styleClass="drop-zone" spacing="15" alignment="CENTER">
+                    <FontIcon iconLiteral="fas-upload" styleClass="upload-icon" />
+                    <Label text="Drop your dataset here" />
+                    <Label text="Supports CSV and JSON files up to 100MB"/>
+                    <Button fx:id="uploadButton" onAction="#onChooseFile" text="Choose File" styleClass="upload-button" />
+                </VBox>
+
+                <HBox alignment="CENTER" spacing="15">
+                    <HBox alignment="CENTER" spacing="8" styleClass="csv-badge">
+                        <Circle radius="5" fill="white"/>
+                        <Label text="CSV Format" styleClass="badge-label"/>
+                    </HBox>
+                    <HBox alignment="CENTER" spacing="8" styleClass="json-badge">
+                        <Circle radius="5" fill="white"/>
+                        <Label text="JSON Format" styleClass="badge-label"/>
+                    </HBox>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>
