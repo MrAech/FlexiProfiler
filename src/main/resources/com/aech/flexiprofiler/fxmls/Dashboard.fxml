@@ -8,38 +8,12 @@
 <BorderPane fx:id="root"
             xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml/1"
+            stylesheets="@../styles/dashboard.css"
             fx:controller="com.aech.flexiprofiler.ui.DashboardController"
             styleClass="root-pane">
     <!--    Top Bar-->
     <top>
-        <HBox styleClass="topbar" alignment="CENTER_LEFT" spacing="12">
-            <HBox spacing="10" alignment="CENTER_LEFT" styleClass="brand-box">
-                <!--                Gradient square behind DB icon-->
-                <StackPane styleClass="brand-icon-bg">
-                    <FontIcon iconLiteral="fas-database" styleClass="brand-icon"/>
-                </StackPane>
-                <VBox>
-                    <Label text="FlexiProfiler" styleClass="brand-title"/>
-                    <Label text="Data Profiler &amp; Validation" styleClass="brand-sub"/>
-                </VBox>
-            </HBox>
-            <Region HBox.hgrow="ALWAYS"/>
-
-            <HBox spacing="18" alignment="CENTER_RIGHT" styleClass="nav-box">
-                <HBox spacing="6" alignment="CENTER">
-                    <FontIcon iconLiteral="fas-home" styleClass="nav-icon"/>
-                    <Label text="Dashboard" styleClass="nav-label"/>
-                </HBox>
-                <HBox spacing="6" alignment="CENTER">
-                    <FontIcon iconLiteral="fas-user" styleClass="nav-icon"/>
-                    <Label text="Profile" styleClass="nav-label"/>
-                </HBox>
-                <HBox spacing="6" alignment="CENTER">
-                    <FontIcon iconLiteral="fas-shield-alt" styleClass="nav-icon"/>
-                    <Label text="Rules" styleClass="nav-label"/>
-                </HBox>
-            </HBox>
-        </HBox>
+        <fx:include source="TopBar.fxml"/>
     </top>
 
     <!--    Center Import and Main Text-->

@@ -3,53 +3,6 @@
     -fx-background-color: #f9fafb;
 }
 
-/*========== NavBar ==========*/
-.topbar{
-    -fx-padding: 12 24;
-    -fx-background-color: #ffffff;
-    -fx-border-color: #e5e7eb;
-    -fx-border-width: 0 0 1 0; /*bottom border line*/
-}
-
-.brand-box{
-
-}
-
-.brand-icon-bg{
-    -fx-background-color: linear-gradient(to bottom right, #8e24aa, #6a1b9a);
-    -fx-background-radius: 8;
-    -fx-padding: 6;
-}
-
-.brand-icon{
-    -fx-icon-size: 20px;
-    -fx-icon-color: white;
-}
-
-.brand-title{
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #111872;
-}
-
-.brand-sub{
-    -fx-font-size: 12px;
-    -fx-text-fill: #6b7280;
-}
-
-.nav-box{
-
-}
-
-.nav-icon{
-    -fx-icon-size: 14px;
-    -fx-icon-color: #374151;
-}
-
-.nav-label {
-    -fx-font-size: 13px;
-    -fx-text-fill: #374151;
-}
 
 /*===== HERO CARD =====*/
 .center-column {
